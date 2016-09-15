@@ -1,27 +1,112 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
-
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Hello App Engine</title>
-  </head>
+<head>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
 
-  <body>
-    <h1>Hello App Engine!</h1>
-	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href="metablog">Metablog</a></td>
-      </tr>
-    </table>
-  </body>
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+
+<div class="header">
+
+    <h1><img src="/img/somelogo_teal.png" class="logo"> The Metablog Blog</h1>
+    <h2>A blog about the making of a blog</h2>
+
+
+    <br>
+    <div class="links">
+        <ul>
+            <li><a href="#">Create</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Subscribe</a></li>
+
+        </ul>
+    </div>
+    <br>
+
+</div>
+
+<div class="body">
+
+    <div class="posts">
+    </div>
+
+    <p class="pull">Scoll to load more</p>
+    <p class="end">No more posts.</p>
+
+</div>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+
+    var canLoadMore = true;
+    var posts = 0;
+    var morePosts = true;
+    $(window).bind("load", function() {
+
+        loadDo();
+
+        $(window).scroll(function() {
+            if(canLoadMore && morePosts) {
+
+                var documentHeight = $(document).height();
+                var windowHeight = window.innerHeight;
+                var scolledPos = $(window).scrollTop();
+
+                if( scolledPos + 200 >= documentHeight - windowHeight) {
+                    loadDo();
+                }
+            }
+        });
+    });
+
+    function loadDo() {
+        canLoadMore = false;
+        $(".post").removeClass("hide");
+        $(".pull").hide();
+        $(".end").hide();
+
+        for (var i = 0; i < 5; i++) {
+            $(".posts").append("<div class='post loading'><div class='top'><h1><span class='loading'></span></h1><h2><span class='loading'></span></h2><h3><span class='loading'></span></h3></div><p><span class='loading'></span></p>        </div>")
+
+        }
+
+        setTimeout(function () {
+            loadDone();
+            canLoadMore = true;
+
+            if(posts > 20){ // TODO change this to be when we receive less than 5 results
+                morePosts = false;
+                $(".end").show();
+            } else {
+                $(".pull").show();
+            }
+        }, 1000);
+    }
+
+    function loadDone() {
+        $(".post.loading").addClass("hide");
+        var h1 = "The Super, very, obtuse, obsene, crazy, long Post title";
+
+        var h2 = "Date";
+        var h3 = "Author";
+        var p = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        p = "<p>"+p+"</p>";
+        p = p + p + p;
+
+        var colors  = ["teal", "orange", "blue", "purple"];
+
+        $(".posts .loading").remove();
+        for (var i = 0; i < 5; i++) {
+
+            var color = colors[Math.round(Math.random() * colors.length)];
+            $(".posts").append("<div class='post "+color+"'><div class='top'><a href='#'><h1>"+h1+"</h1></a><h2>"+h2+"</h2><h3>"+h3+"</h3></div>"+p+"</div>");
+        }
+
+        posts = posts + 5;
+    }
+</script>
+
 </html>
