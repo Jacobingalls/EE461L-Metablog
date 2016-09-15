@@ -15,4 +15,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	
+	<servlet>
+		<servlet-name>Posts</servlet-name>
+		<servlet-class>edu.utexas.ece.metablog.PostsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Posts</servlet-name>
+		<url-pattern>/posts</url-pattern>
+	</servlet-mapping>
 </web-app>
