@@ -374,17 +374,38 @@ form {
                 }
             }
         }
+        .content {
+            h1,h2,h3,h4,h5 {
+                padding: 2%;
+                color: $wwdc_teal;
+            }
 
-        p {
-            padding: 1%;
-            line-height: 1.5em;
+            h1 {
+                font-size: 2em;
+            }
 
-            font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
-            font-weight: 400;
-            letter-spacing: 1.1;
-            text-align: justify;
-            justify-content: space-around;
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p {
+                padding: 2%;
+                line-height: 1.5em;
+
+                font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
+                font-weight: 400;
+                letter-spacing: 1.1;
+                text-align: justify;
+                justify-content: space-around;
+            }
+
+            pre {
+                background: darken($comment, 5);
+                padding: 2%;
+                line-height: 1em;
+            }
         }
+
 
 
         &.loading {

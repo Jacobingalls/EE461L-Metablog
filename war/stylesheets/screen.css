@@ -399,8 +399,21 @@ form textarea:focus {
   background: rgba(38, 64, 207, 0.5);
 }
 /* line 378, ../sass/screen.scss */
-.body .post p {
-  padding: 1%;
+.body .post .content h1, .body .post .content h2, .body .post .content h3, .body .post .content h4, .body .post .content h5 {
+  padding: 2%;
+  color: #00ABA5;
+}
+/* line 383, ../sass/screen.scss */
+.body .post .content h1 {
+  font-size: 2em;
+}
+/* line 387, ../sass/screen.scss */
+.body .post .content h2 {
+  font-size: 1.5em;
+}
+/* line 391, ../sass/screen.scss */
+.body .post .content p {
+  padding: 2%;
   line-height: 1.5em;
   font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
   font-weight: 400;
@@ -408,12 +421,18 @@ form textarea:focus {
   text-align: justify;
   justify-content: space-around;
 }
-/* line 390, ../sass/screen.scss */
+/* line 402, ../sass/screen.scss */
+.body .post .content pre {
+  background: #4e5162;
+  padding: 2%;
+  line-height: 1em;
+}
+/* line 411, ../sass/screen.scss */
 .body .post.loading {
   overflow: hidden;
   opacity: .5;
 }
-/* line 393, ../sass/screen.scss */
+/* line 414, ../sass/screen.scss */
 .body .post.loading .top {
   background: #7e8298;
 }
@@ -425,7 +444,7 @@ form textarea:focus {
     background-position: -100% 0px;
   }
 }
-/* line 407, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 .body .post.loading span.loading {
   height: 1em;
   width: 200px;
@@ -439,17 +458,17 @@ form textarea:focus {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-/* line 422, ../sass/screen.scss */
+/* line 443, ../sass/screen.scss */
 .body .post.loading h1 span.loading {
   width: 80%;
 }
-/* line 426, ../sass/screen.scss */
+/* line 447, ../sass/screen.scss */
 .body .post.loading p span.loading {
   width: 90%;
   margin-bottom: 3.5em;
   margin-top: .5em;
 }
-/* line 431, ../sass/screen.scss */
+/* line 452, ../sass/screen.scss */
 .body .post.loading p span.loading:before {
   content: "";
   width: 107%;
@@ -465,7 +484,7 @@ form textarea:focus {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-/* line 448, ../sass/screen.scss */
+/* line 469, ../sass/screen.scss */
 .body .post.loading p span.loading:after {
   content: "";
   width: 105%;

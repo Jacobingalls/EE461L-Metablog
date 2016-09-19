@@ -5,6 +5,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -32,7 +33,7 @@ public class PostServlet extends HttpServlet {
         String guestbookName = req.getParameter("guestbookName");
         Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
         String title = req.getParameter("title");
-        String content = req.getParameter("content");
+        Text content = new Text(req.getParameter("content"));
         Date date = new Date();
         
         Entity greeting = new Entity("Greeting", guestbookKey);

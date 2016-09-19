@@ -2,6 +2,7 @@ package edu.utexas.ece.metablog;
 
 import java.util.Date;
 
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -16,13 +17,13 @@ public class Greeting implements Comparable<Greeting> {
     @Id Long id;
     User user;
     String title;
-    String content;
+    Text content;
     Date date;
     private Greeting() {
     	
     }
     
-    public Greeting(User user, String title, String content) {
+    public Greeting(User user, String title, Text content) {
         this.user = user;
         this.title = title;
         this.content = content;
@@ -34,7 +35,7 @@ public class Greeting implements Comparable<Greeting> {
     }
 
     public String getContent() {
-        return content;
+        return content.getValue();
     }
     
     public String getTitle() {

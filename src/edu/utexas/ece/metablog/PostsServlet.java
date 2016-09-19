@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.*;
-
 import com.googlecode.objectify.ObjectifyService;
 
 @SuppressWarnings("serial")
@@ -14,8 +13,10 @@ public class PostsServlet extends HttpServlet {
 		
 		resp.setContentType("application/json");
 		
+		
 		ObjectifyService.register(Greeting.class);
 		List<Greeting> greetings = ObjectifyService.ofy().load().type(Greeting.class).list();   
+		   
 		Collections.sort(greetings); 
 		if (greetings.isEmpty()) {
 			resp.getWriter().println("{"
@@ -44,12 +45,28 @@ public class PostsServlet extends HttpServlet {
 			
 			while(i < greetings.size() && i < max) {
 				Greeting g = greetings.get(i);
-				String c = g.content.replaceAll("\"", "&quot;").replaceAll("\r\n", "<br>").replaceAll("\n", "<br>");
+				String t = g.title.replaceAll("\"", "&quot;").replaceAll("\r\n", " ").replaceAll("\n", " ");
+				String c = "[\"";
+				
+				String[] lines = g.getContent().replaceAll("\"", "&quot;").replaceAll("\r\n", "\n").split("\n");
+				boolean first = true;
+				for(int j = 0; j < lines.length; j++) {
+					if(lines[j].length() > 0) {
+						if(!first) {
+							c += "\", \"";
+						}
+						
+						first = false;
+						c+= lines[j];
+					}
+				}
+				c += "\"]";
+				
 				if(max-i != 5) {
 					sb.append(",");
 				}
 
-				sb.append("{\"title\": \""+g.title+"\", \"author\": \""+g.user+"\", \"date\": \""+g.getDate()+"\", \"message\": \""+c+"\", \"color\": \"teal\"}");
+				sb.append("{\"title\": \""+t+"\", \"author\": \""+g.user+"\", \"date\": \""+g.getDate()+"\", \"message\": "+c+", \"color\": \"teal\"}");
 				i++;
 			}
 			
