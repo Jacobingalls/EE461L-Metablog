@@ -404,6 +404,15 @@ form {
                 padding: 2%;
                 line-height: 1em;
             }
+
+            a {
+                color: $wwdc_teal;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
 
