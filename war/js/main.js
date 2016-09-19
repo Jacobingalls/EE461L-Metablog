@@ -71,7 +71,7 @@ var canLoadMore = true;
             var h1 = post["title"];
             var h2 = post["date"];
             var h3 = post["author"];
-            var p = post["message"].join("\n\n");
+            var p = post["message"].join("\n").split("&quot;").join("\"");
 //            .split("\n").map(function(a){ return "<p>"+a +"</p>"; }).join("");
            
             var converter = new showdown.Converter();
