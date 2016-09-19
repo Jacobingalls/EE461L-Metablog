@@ -19,6 +19,23 @@ var canLoadMore = true;
             }
         });
     });
+    
+    $(".postOverlay").hide();
+    $("a.createLink").bind("click", function(event) {
+    	event.preventDefault();
+    	
+    	
+    	
+    	$(".postOverlay").slideDown();
+    	$("a.createLink").addClass("active");
+    	$(".title").focus();
+    });
+    $("a.cancel").bind("click", function(event) {
+    	event.preventDefault();
+    	
+    	$(".postOverlay").slideUp();
+    	$("a.createLink").removeClass("active");
+    });
 
     function loadDo() {
         canLoadMore = false;
@@ -54,10 +71,14 @@ var canLoadMore = true;
             var h1 = post["title"];
             var h2 = post["date"];
             var h3 = post["author"];
-            var p = post["message"].split("\n").map(function(a){ return "<p>"+a +"</p>"; }).join("");
+            var p = post["message"].join("\n").split("&quot;").join("\"");
+//            .split("\n").map(function(a){ return "<p>"+a +"</p>"; }).join("");
            
+            var converter = new showdown.Converter();
+            p = converter.makeHtml(p);
+            
             var color = post["color"];
-            $(".posts").append("<div class='post "+color+"'><div class='top'><a href='#'><h1>"+h1+"</h1></a><h2>"+h2+"</h2><h3>"+h3+"</h3></div>"+p+"</div>");
+            $(".posts").append("<div class='post "+color+"'><div class='top'><a href='#'><h1>"+h1+"</h1></a><h2>"+h2+"</h2><h3>"+h3+"</h3></div><div class='content'>"+p+"</div></div>");
         }
 
 
