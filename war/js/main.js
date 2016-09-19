@@ -19,6 +19,23 @@ var canLoadMore = true;
             }
         });
     });
+    
+    $(".postOverlay").hide();
+    $("a.createLink").bind("click", function(event) {
+    	event.preventDefault();
+    	
+    	
+    	
+    	$(".postOverlay").slideDown();
+    	$("a.createLink").addClass("active");
+    	$(".title").focus();
+    });
+    $("a.cancel").bind("click", function(event) {
+    	event.preventDefault();
+    	
+    	$(".postOverlay").slideUp();
+    	$("a.createLink").removeClass("active");
+    });
 
     function loadDo() {
         canLoadMore = false;
