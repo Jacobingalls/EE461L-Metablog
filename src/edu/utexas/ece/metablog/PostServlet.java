@@ -30,8 +30,7 @@ public class PostServlet extends HttpServlet {
         // This lets us run a transactional ancestor query to retrieve all
         // Greetings for a given Guestbook.  However, the write rate to each
         // Guestbook should be limited to ~1/second.
-        String guestbookName = req.getParameter("guestbookName");
-        Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
+        Key guestbookKey = KeyFactory.createKey("Guestbook", "metablog");
         String title = req.getParameter("title");
         Text content = new Text(req.getParameter("content"));
         Date date = new Date();

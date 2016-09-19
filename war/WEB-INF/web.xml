@@ -46,5 +46,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Cron</servlet-name>
 		<url-pattern>/cron</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Subscribe</servlet-name>
+		<servlet-class>edu.utexas.ece.metablog.SubscribeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Subscribe</servlet-name>
+		<url-pattern>/subscribe</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Unsubscribe</servlet-name>
+		<servlet-class>edu.utexas.ece.metablog.UnsubscribeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Unsubscribe</servlet-name>
+		<url-pattern>/unsubscribe</url-pattern>
+	</servlet-mapping>
 
 </web-app>
