@@ -3,6 +3,6 @@
   <cron>
     <url>/cron</url>
     <description>daily summary job</description>
-    <schedule>every 1 minutes</schedule>
+    <schedule>every 2day 17:00</schedule>
   </cron>
 </cronentries>
