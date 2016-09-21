@@ -16,7 +16,7 @@ public class PostsServlet extends HttpServlet {
 		
 		ObjectifyService.register(Greeting.class);
 		List<Greeting> greetings = ObjectifyService.ofy().load().type(Greeting.class).list();   
-		   
+		
 		Collections.sort(greetings); 
 		if (greetings.isEmpty()) {
 			resp.getWriter().println("{"

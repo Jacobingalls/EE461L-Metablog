@@ -2,7 +2,7 @@
 <%@ page import="java.util.Collections" %>
 <%@ page import="com.googlecode.objectify.*" %>
 <%@ page import="java.util.List" %>
-<%@ page import="guestbook.*" %>
+<%@ page import="edu.utexas.ece.metablog.*" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
@@ -48,7 +48,36 @@
     <div class="links">
         <ul>
             <li><a href="#" class="createLink">Create</a></li>
-            <li><a href="#">Subscribe</a></li>
+            
+            
+            <%
+            
+            	ObjectifyService.register(Subscription.class);
+				List<Subscription> subscriptions = ObjectifyService.ofy().load().type(Subscription.class).list();   
+            	
+            	boolean found = false;
+				for(int i =0; i < subscriptions.size(); i ++) {
+					if(subscriptions.get(i).getUser().equals(user)) {
+						if(subscriptions.get(i).getSubscribed())
+							found = true;
+					}
+				}
+            
+            	if(found) {
+            %>
+            
+            <li><a href="/unsubscribe">Unsubscribe</a></li>
+            
+            <%
+            } else {
+            %>
+            
+            <li><a href="/subscribe">Subscribe</a></li>
+            
+            <%
+            }
+            %>
+            
             <li><a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Logout</a></li>
        	</ul>
     </div>
