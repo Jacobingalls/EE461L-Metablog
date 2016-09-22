@@ -398,50 +398,78 @@ form textarea:focus {
 .body .post.blue a:hover h1:before {
   background: rgba(38, 64, 207, 0.5);
 }
-/* line 378, ../sass/screen.scss */
+/* line 377, ../sass/screen.scss */
+.body .post .content {
+  font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.1;
+  line-height: 1.2em;
+  text-align: justify;
+}
+/* line 386, ../sass/screen.scss */
 .body .post .content h1, .body .post .content h2, .body .post .content h3, .body .post .content h4, .body .post .content h5 {
   padding: 2%;
   color: #00ABA5;
 }
-/* line 383, ../sass/screen.scss */
+/* line 391, ../sass/screen.scss */
 .body .post .content h1 {
   font-size: 2em;
+  padding-top: 5%;
+  padding-bottom: 0;
 }
-/* line 387, ../sass/screen.scss */
+/* line 397, ../sass/screen.scss */
 .body .post .content h2 {
   font-size: 1.5em;
+  padding-top: 4%;
+  padding-bottom: 0;
 }
-/* line 391, ../sass/screen.scss */
+/* line 403, ../sass/screen.scss */
 .body .post .content p {
   padding: 2%;
-  line-height: 1.5em;
-  font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1.1;
-  text-align: justify;
   justify-content: space-around;
 }
-/* line 402, ../sass/screen.scss */
+/* line 409, ../sass/screen.scss */
+.body .post .content p code {
+  background: #4e5162;
+  padding: 2px;
+  border-radius: 3px;
+  color: #DB8D53;
+}
+/* line 417, ../sass/screen.scss */
+.body .post .content img {
+  max-width: 104%;
+  margin-left: -2%;
+}
+/* line 422, ../sass/screen.scss */
 .body .post .content pre {
   background: #4e5162;
   padding: 2%;
   line-height: 1em;
 }
-/* line 408, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 .body .post .content a {
   color: #00ABA5;
   text-decoration: none;
 }
-/* line 412, ../sass/screen.scss */
+/* line 432, ../sass/screen.scss */
 .body .post .content a:hover {
   text-decoration: underline;
 }
-/* line 420, ../sass/screen.scss */
+/* line 437, ../sass/screen.scss */
+.body .post .content strong {
+  font: bold;
+}
+/* line 441, ../sass/screen.scss */
+.body .post .content ul {
+  padding-left: 4%;
+  list-style: inherit;
+}
+/* line 452, ../sass/screen.scss */
 .body .post.loading {
   overflow: hidden;
   opacity: .5;
 }
-/* line 423, ../sass/screen.scss */
+/* line 455, ../sass/screen.scss */
 .body .post.loading .top {
   background: #7e8298;
 }
@@ -453,7 +481,7 @@ form textarea:focus {
     background-position: -100% 0px;
   }
 }
-/* line 437, ../sass/screen.scss */
+/* line 469, ../sass/screen.scss */
 .body .post.loading span.loading {
   height: 1em;
   width: 200px;
@@ -467,17 +495,17 @@ form textarea:focus {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-/* line 452, ../sass/screen.scss */
+/* line 484, ../sass/screen.scss */
 .body .post.loading h1 span.loading {
   width: 80%;
 }
-/* line 456, ../sass/screen.scss */
+/* line 488, ../sass/screen.scss */
 .body .post.loading p span.loading {
   width: 90%;
   margin-bottom: 3.5em;
   margin-top: .5em;
 }
-/* line 461, ../sass/screen.scss */
+/* line 493, ../sass/screen.scss */
 .body .post.loading p span.loading:before {
   content: "";
   width: 107%;
@@ -493,7 +521,7 @@ form textarea:focus {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-/* line 478, ../sass/screen.scss */
+/* line 510, ../sass/screen.scss */
 .body .post.loading p span.loading:after {
   content: "";
   width: 105%;

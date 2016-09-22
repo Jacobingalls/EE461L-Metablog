@@ -24,6 +24,7 @@
   <![endif]-->
 
   <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bower_components/prism/themes/prism-okaidia.css">
 </head>
 
 <div class="header">
@@ -128,6 +129,12 @@
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/showdown/dist/showdown.min.js"></script>
+<script src="/bower_components/prism/prism.js"></script>
+<script src="/bower_components/prism/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+Prism.plugins.autoloader.languages_path = '/bower_components/prism/components/';
+</script>
+
 <script src="/js/main.js"></script>
 
 </html>
