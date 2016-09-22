@@ -11,6 +11,9 @@ import com.googlecode.objectify.ObjectifyService;
 public class PostsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
+		try{Thread.sleep(500);} catch(Exception e){};
+		
+		
 		resp.setContentType("application/json");
 		
 		
@@ -51,14 +54,13 @@ public class PostsServlet extends HttpServlet {
 				String[] lines = g.getContent().replaceAll("\"", "&quot;").replaceAll("\r\n", "\n").split("\n");
 				boolean first = true;
 				for(int j = 0; j < lines.length; j++) {
-					if(lines[j].length() > 0) {
-						if(!first) {
-							c += "\", \"";
-						}
-						
-						first = false;
-						c+= lines[j];
+					if(!first) {
+						c += "\", \"";
 					}
+					
+					first = false;
+					c+= lines[j];
+				
 				}
 				c += "\"]";
 				

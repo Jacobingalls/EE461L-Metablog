@@ -78,7 +78,7 @@ var canLoadMore = true;
             p = converter.makeHtml(p);
             
             var color = post["color"];
-            $(".posts").append("<div class='post "+color+"'><div class='top'><a href='#'><h1>"+h1+"</h1></a><h2>"+h2+"</h2><h3>"+h3+"</h3></div><div class='content'>"+p+"</div></div>");
+            $(".posts").append("<div class='post "+color+"'><div class='top'><h1>"+h1+"</h1><h2>"+h2+"</h2><h3>"+h3+"</h3></div><div class='content'>"+p+"</div></div>");
         }
 
 
@@ -86,4 +86,6 @@ var canLoadMore = true;
         if(data["posts"].length < 5) {
         	morePosts = false;
         }
+        
+        Prism.highlightAll();
     }

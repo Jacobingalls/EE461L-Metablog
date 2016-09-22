@@ -375,6 +375,14 @@ form {
             }
         }
         .content {
+
+            font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
+            font-weight: 400;
+            letter-spacing: 1.1;
+            line-height: 1.2em;
+            text-align: justify;
+
+
             h1,h2,h3,h4,h5 {
                 padding: 2%;
                 color: $wwdc_teal;
@@ -382,21 +390,33 @@ form {
 
             h1 {
                 font-size: 2em;
+                padding-top: 5%;
+                padding-bottom: 0;
             }
 
             h2 {
                 font-size: 1.5em;
+                padding-top: 4%;
+                padding-bottom: 0;
             }
 
             p {
                 padding: 2%;
-                line-height: 1.5em;
 
-                font-family: "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
-                font-weight: 400;
-                letter-spacing: 1.1;
-                text-align: justify;
+
                 justify-content: space-around;
+
+                code {
+                    background: darken($comment, 5);
+                    padding: 2px;
+                    border-radius: 3px;
+                    color: $wwdc_orange;
+                }
+            }
+
+            img {
+                max-width: 104%;
+                margin-left: -2%;
             }
 
             pre {
@@ -411,6 +431,18 @@ form {
 
                 &:hover {
                     text-decoration: underline;
+                }
+            }
+
+            strong {
+                font: bold;
+            }
+
+            ul {
+                padding-left: 4%;
+                list-style:inherit;
+                li {
+
                 }
             }
         }
